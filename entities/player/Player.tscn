@@ -1,0 +1,32 @@
+[gd_scene load_steps=7 format=3 uid="uid://cav0fc8pl63y6"]
+
+[ext_resource type="Script" uid="uid://bog7p2g5mdwrx" path="res://entities/player/scripts/player.gd" id="1_eaotn"]
+[ext_resource type="Texture2D" uid="uid://cfpb1rpw5i5io" path="res://entities/player/sprites/player.png" id="1_mab2k"]
+[ext_resource type="Script" uid="uid://bmy25k47dnnh3" path="res://scripts/common/StateMachine.gd" id="2_l3c03"]
+[ext_resource type="Script" uid="uid://bjjjk7j1cpp68" path="res://entities/player/states/idle.gd" id="3_eaotn"]
+[ext_resource type="Script" uid="uid://vjhf28weoi7d" path="res://entities/player/states/move.gd" id="5_g3lhm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dlxvd"]
+size = Vector2(6, 6)
+
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_eaotn")
+
+[node name="Collision" type="CollisionShape2D" parent="." groups=["player"]]
+position = Vector2(0, -3)
+shape = SubResource("RectangleShape2D_dlxvd")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(0, -8)
+texture = ExtResource("1_mab2k")
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("2_l3c03")
+
+[node name="Idle" type="Node" parent="StateMachine"]
+script = ExtResource("3_eaotn")
+
+[node name="Move" type="Node" parent="StateMachine"]
+script = ExtResource("5_g3lhm")

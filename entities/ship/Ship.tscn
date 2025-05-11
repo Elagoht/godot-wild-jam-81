@@ -1,0 +1,65 @@
+[gd_scene load_steps=4 format=3 uid="uid://ci3gdlpvoknsb"]
+
+[ext_resource type="Script" uid="uid://dixrswgnmpg4x" path="res://entities/ship/scripts/ship.gd" id="1_i8y07"]
+[ext_resource type="Texture2D" uid="uid://d4i6vbqk46p5k" path="res://entities/ship/sprites/ship.png" id="1_to6fy"]
+[ext_resource type="Script" uid="uid://dvsr5frrwph2" path="res://entities/ship/scripts/pad.gd" id="2_0i1q7"]
+
+[node name="Ship" type="CharacterBody2D" groups=["player"]]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_i8y07")
+metadata/_edit_horizontal_guides_ = [12.0, -12.0]
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_to6fy")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-73, -25, 46, -25, 73, 2, 73, 25, -73, 25, -80, 32, 80, 32, 80, 0, 48, -32, -80, -32, -80, 32, -73, 25)
+
+[node name="MovementPad" type="Node2D" parent="."]
+position = Vector2(-50, 0)
+
+[node name="RightPad" type="Area2D" parent="MovementPad"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("2_0i1q7")
+direction = Vector2(1, 0)
+
+[node name="Collision" type="CollisionPolygon2D" parent="MovementPad/RightPad"]
+polygon = PackedVector2Array(11, -12, 15, -6, 16, 0, 15, 7, 11, 12, 0, 0)
+
+[node name="LeftPad" type="Area2D" parent="MovementPad"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("2_0i1q7")
+direction = Vector2(-1, 0)
+
+[node name="Collision" type="CollisionPolygon2D" parent="MovementPad/LeftPad"]
+polygon = PackedVector2Array(-11, -12, -15, -6, -15, 7, -12, 12, 0, 0)
+
+[node name="DownPad" type="Area2D" parent="MovementPad"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("2_0i1q7")
+direction = Vector2(0, 1)
+
+[node name="Collision" type="CollisionPolygon2D" parent="MovementPad/DownPad"]
+polygon = PackedVector2Array(-12, 12, -7, 15, 0, 16, 6, 15, 11, 12, 0, 0)
+
+[node name="UpPad" type="Area2D" parent="MovementPad"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("2_0i1q7")
+direction = Vector2(0, -1)
+
+[node name="Collision" type="CollisionPolygon2D" parent="MovementPad/UpPad"]
+polygon = PackedVector2Array(-11, -12, -7, -15, 0, -16, 6, -15, 11, -12, 0, 0)
+
+[connection signal="body_entered" from="MovementPad/RightPad" to="MovementPad/RightPad" method="_on_body_entered"]
+[connection signal="body_exited" from="MovementPad/RightPad" to="MovementPad/RightPad" method="_on_body_exited"]
+[connection signal="body_entered" from="MovementPad/LeftPad" to="MovementPad/LeftPad" method="_on_body_entered"]
+[connection signal="body_exited" from="MovementPad/LeftPad" to="MovementPad/LeftPad" method="_on_body_exited"]
+[connection signal="body_entered" from="MovementPad/DownPad" to="MovementPad/DownPad" method="_on_body_entered"]
+[connection signal="body_exited" from="MovementPad/DownPad" to="MovementPad/DownPad" method="_on_body_exited"]
+[connection signal="body_entered" from="MovementPad/UpPad" to="MovementPad/UpPad" method="_on_body_entered"]
+[connection signal="body_exited" from="MovementPad/UpPad" to="MovementPad/UpPad" method="_on_body_exited"]

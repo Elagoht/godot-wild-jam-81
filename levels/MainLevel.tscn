@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://cytcmdfaxo6w0"]
+
+[ext_resource type="PackedScene" uid="uid://cav0fc8pl63y6" path="res://entities/player/Player.tscn" id="1_hkwxo"]
+[ext_resource type="PackedScene" uid="uid://ci3gdlpvoknsb" path="res://entities/ship/Ship.tscn" id="1_mt7cn"]
+
+[node name="MainLevel" type="Node2D"]
+y_sort_enabled = true
+
+[node name="Ship" parent="." instance=ExtResource("1_mt7cn")]
+position = Vector2(120, 128)
+
+[node name="Players" type="Node2D" parent="Ship"]
+y_sort_enabled = true
+
+[node name="Player" parent="Ship/Players" instance=ExtResource("1_hkwxo")]
+
+[node name="Player2" parent="Ship/Players" instance=ExtResource("1_hkwxo")]
+position = Vector2(24, 0)
+player_id = "2"
