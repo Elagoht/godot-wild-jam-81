@@ -13,3 +13,6 @@ func _ready() -> void:
 		state_machine.transition_to("idle")
 	else:
 		push_error("State machine not found!")
+
+func getPlayerId():
+	return player_id
