@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://s2mhjkvca3m"]
+
+[ext_resource type="Script" uid="uid://dvsr5frrwph2" path="res://entities/ship/scripts/pad.gd" id="1_1pqtu"]
+[ext_resource type="Texture2D" uid="uid://h6n8sfx7tkvb" path="res://entities/ship/sprites/pad_right.png" id="2_7xow8"]
+
+[node name="MovePad" type="Area2D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_1pqtu")
+direction = Vector2(1, 0)
+
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(10, 0)
+texture = ExtResource("2_7xow8")
+
+[node name="Collision" type="CollisionPolygon2D" parent="."]
+position = Vector2(2, 0)
+polygon = PackedVector2Array(5, -5, 16, -5, 16, 5, 5, 5, 0, 0)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

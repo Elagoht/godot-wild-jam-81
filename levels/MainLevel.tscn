@@ -7,11 +7,11 @@
 y_sort_enabled = true
 
 [node name="Ship" parent="." instance=ExtResource("1_mt7cn")]
-position = Vector2(256, 211)
+position = Vector2(226, 181)
 
 [node name="Players" type="Node2D" parent="Ship"]
 y_sort_enabled = true
-position = Vector2(2, 0)
+position = Vector2(4, 26)
 
 [node name="Player" parent="Ship/Players" instance=ExtResource("1_hkwxo")]
 position = Vector2(32, 0)
