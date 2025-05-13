@@ -14,5 +14,5 @@ func _ready() -> void:
 	else:
 		push_error("State machine not found!")
 
-func getPlayerId():
+func get_player_id():
 	return player_id

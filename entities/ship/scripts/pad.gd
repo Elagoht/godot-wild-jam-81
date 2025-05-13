@@ -11,14 +11,15 @@ func _ready() -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
-		if body.has_method("getPlayerId"):
-			players_on_it.append(body.player_id)
+		if body.has_method("get_player_id"):
+			players_on_it.append(body.get_player_id())
 
 func _on_body_exited(body: Node2D) -> void:
-	if body.has_method("getPlayerId"):
-		if body.is_in_group("player"):
-			players_on_it.erase(body.player_id)
+	if body.is_in_group("player"):
+		if body.has_method("get_player_id"):
+			players_on_it.erase(body.get_player_id())
 
 func _physics_process(delta: float) -> void:
-	parent.move_and_collide(direction * delta * parent.speed * len(players_on_it))
+	var is_active = 1 if len(players_on_it) else 0
+	parent.move_and_collide(direction * delta * parent.speed * is_active)
 	sprite.visible = len(players_on_it) > 0
