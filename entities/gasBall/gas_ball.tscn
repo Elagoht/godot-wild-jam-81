@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://dqy1yso4jbo8s"]
+
+[ext_resource type="Script" uid="uid://dyb7wrdaxd5u4" path="res://entities/gasBall/scripts/gas_ball.gd" id="1_78761"]
+[ext_resource type="Texture2D" uid="uid://lnpqg34q5ke" path="res://entities/gasBall/sprites/gass.png" id="1_nw8fr"]
+[ext_resource type="Texture2D" uid="uid://72de4hfuul2o" path="res://entities/gasBall/sprites/gassball.png" id="1_ugn3x"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nw8fr"]
+radius = 98.0612
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_78761"]
+radius = 16.0
+
+[node name="GasBall" type="StaticBody2D"]
+script = ExtResource("1_78761")
+
+[node name="Gass" type="Area2D" parent="."]
+
+[node name="Sprite" type="Sprite2D" parent="Gass"]
+texture = ExtResource("1_nw8fr")
+
+[node name="Collision" type="CollisionShape2D" parent="Gass"]
+shape = SubResource("CircleShape2D_nw8fr")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_ugn3x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_78761")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 4.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
