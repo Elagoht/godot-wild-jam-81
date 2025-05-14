@@ -65,5 +65,7 @@ rotation = 7.85397
 [node name="StatusBar" parent="." instance=ExtResource("5_a7ikb")]
 position = Vector2(-60, -96)
 
+[node name="Camera" type="Camera2D" parent="."]
+
 [connection signal="energy_changed" from="." to="StatusBar" method="_on_ship_energy_changed"]
 [connection signal="hp_changed" from="." to="StatusBar" method="_on_ship_hp_changed"]
