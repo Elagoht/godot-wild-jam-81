@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cytcmdfaxo6w0"]
+[gd_scene load_steps=4 format=3 uid="uid://cytcmdfaxo6w0"]
 
 [ext_resource type="PackedScene" uid="uid://cav0fc8pl63y6" path="res://entities/player/Player.tscn" id="1_hkwxo"]
 [ext_resource type="PackedScene" uid="uid://ci3gdlpvoknsb" path="res://entities/ship/Ship.tscn" id="1_mt7cn"]
+[ext_resource type="PackedScene" uid="uid://dqy1yso4jbo8s" path="res://entities/gasBall/gas_ball.tscn" id="3_3348v"]
 
 [node name="MainLevel" type="Node2D"]
 y_sort_enabled = true
@@ -19,3 +20,6 @@ position = Vector2(32, 0)
 [node name="Player2" parent="Ship/Players" instance=ExtResource("1_hkwxo")]
 position = Vector2(-32, 0)
 player_id = "2"
+
+[node name="GasBall" parent="." instance=ExtResource("3_3348v")]
+position = Vector2(495, 165)
