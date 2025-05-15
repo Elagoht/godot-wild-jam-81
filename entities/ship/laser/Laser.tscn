@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://cutqyci4qu4mr"]
+[gd_scene load_steps=5 format=3 uid="uid://cutqyci4qu4mr"]
 
 [ext_resource type="Script" uid="uid://cp1scpjs17vs1" path="res://entities/ship/laser/scripts/laser.gd" id="1_qcw8r"]
 [ext_resource type="Texture2D" uid="uid://d3vsqy0bbuyib" path="res://entities/ship/laser/sprites/laser.png" id="2_qcw8r"]
 [ext_resource type="PackedScene" uid="uid://d081r8pruwpsw" path="res://entities/ship/laser/rotate_pad.tscn" id="3_0pd2v"]
+[ext_resource type="Texture2D" uid="uid://drl0f7kna52hk" path="res://entities/ship/laser/sprites/light_sphere.png" id="3_gh76m"]
 
 [node name="Laser" type="Node2D"]
 script = ExtResource("1_qcw8r")
@@ -10,7 +11,7 @@ script = ExtResource("1_qcw8r")
 [node name="Rotatable" type="Node2D" parent="."]
 
 [node name="Line" type="Line2D" parent="Rotatable"]
-points = PackedVector2Array(64, 0, 2000, 0)
+points = PackedVector2Array(79, 0, 2000, 0)
 width = 1.0
 default_color = Color(1, 0, 0, 1)
 
@@ -21,6 +22,13 @@ collide_with_areas = true
 [node name="Laser" type="Sprite2D" parent="Rotatable"]
 position = Vector2(71, 0)
 texture = ExtResource("2_qcw8r")
+
+[node name="Light" type="PointLight2D" parent="Rotatable"]
+position = Vector2(64, 0)
+energy = 1.5
+shadow_enabled = true
+texture = ExtResource("3_gh76m")
+texture_scale = 2.0
 
 [node name="RotatePadRight" parent="." instance=ExtResource("3_0pd2v")]
 position = Vector2(28, -36)

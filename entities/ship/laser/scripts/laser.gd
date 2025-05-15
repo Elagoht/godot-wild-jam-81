@@ -8,7 +8,6 @@ extends Node2D
 func _process(_delta: float) -> void:
 	if ray.is_colliding():
 		line.default_color = Color(1, 0, 0)
-		print(ray.get_collision_point())
 		line.set_point_position(1, rotatable.to_local(ray.get_collision_point()))
 	else:
 		line.default_color = Color(0, 0, 1)
