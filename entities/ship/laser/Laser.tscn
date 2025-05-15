@@ -20,3 +20,9 @@ position = Vector2(28, -36)
 [node name="Laser" type="Sprite2D" parent="Rotatable"]
 position = Vector2(71, 0)
 texture = ExtResource("2_qcw8r")
+
+[node name="Line" type="Line2D" parent="Rotatable"]
+position = Vector2(79, 0)
+points = PackedVector2Array(0, 0, 2000, 0)
+width = 3.0
+default_color = Color(0.532557, 0.863856, 0.982414, 1)
