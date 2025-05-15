@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://ci3gdlpvoknsb"]
+[gd_scene load_steps=8 format=3 uid="uid://ci3gdlpvoknsb"]
 
 [ext_resource type="Script" uid="uid://dixrswgnmpg4x" path="res://entities/ship/scripts/ship.gd" id="1_i8y07"]
 [ext_resource type="Texture2D" uid="uid://d4i6vbqk46p5k" path="res://entities/ship/sprites/ship.png" id="1_to6fy"]
 [ext_resource type="PackedScene" uid="uid://s2mhjkvca3m" path="res://entities/ship/movepad/MovePad.tscn" id="3_0i2w5"]
 [ext_resource type="PackedScene" uid="uid://c8shxe47tf6wk" path="res://entities/ship/statusBar/StatusBar.tscn" id="5_a7ikb"]
+[ext_resource type="PackedScene" uid="uid://cutqyci4qu4mr" path="res://entities/ship/laser/Laser.tscn" id="6_f3lhp"]
 [ext_resource type="PackedScene" uid="uid://cflg1bmhils22" path="res://entities/ship/shield/Shield.tscn" id="8_24c80"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6h448"]
@@ -11,7 +12,6 @@ radius = 65.0077
 
 [node name="Ship" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_i8y07")
-metadata/_edit_horizontal_guides_ = [12.0, -12.0]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_6h448")
@@ -66,6 +66,8 @@ rotation = 7.85397
 position = Vector2(-60, -96)
 
 [node name="Camera" type="Camera2D" parent="."]
+
+[node name="Laser" parent="." instance=ExtResource("6_f3lhp")]
 
 [connection signal="energy_changed" from="." to="StatusBar" method="_on_ship_energy_changed"]
 [connection signal="hp_changed" from="." to="StatusBar" method="_on_ship_hp_changed"]

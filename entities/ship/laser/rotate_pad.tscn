@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://d081r8pruwpsw"]
+
+[ext_resource type="Texture2D" uid="uid://db3f6yyroi6o5" path="res://entities/ship/laser/sprites/pad.png" id="1_h7y7j"]
+[ext_resource type="Script" uid="uid://jswx7kp7djss" path="res://entities/ship/laser/scripts/rotate_pad.gd" id="1_rld4r"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qcw8r"]
+radius = 8.0
+
+[node name="RotatePad" type="Area2D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_rld4r")
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_qcw8r")
+
+[node name="Pad" type="Sprite2D" parent="."]
+scale = Vector2(1.6, 1.45455)
+texture = ExtResource("1_h7y7j")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
