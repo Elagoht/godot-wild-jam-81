@@ -7,22 +7,26 @@
 [node name="Laser" type="Node2D"]
 script = ExtResource("1_qcw8r")
 
-[node name="RotatePadLeft" parent="." instance=ExtResource("3_0pd2v")]
-position = Vector2(-28, -36)
-scale = Vector2(-1, 1)
-direction = -1
-
-[node name="RotatePadRight" parent="." instance=ExtResource("3_0pd2v")]
-position = Vector2(28, -36)
-
 [node name="Rotatable" type="Node2D" parent="."]
+
+[node name="Line" type="Line2D" parent="Rotatable"]
+points = PackedVector2Array(64, 0, 2000, 0)
+width = 1.0
+default_color = Color(1, 0, 0, 1)
+
+[node name="Ray" type="RayCast2D" parent="Rotatable"]
+target_position = Vector2(500, 0)
+collide_with_areas = true
 
 [node name="Laser" type="Sprite2D" parent="Rotatable"]
 position = Vector2(71, 0)
 texture = ExtResource("2_qcw8r")
 
-[node name="Line" type="Line2D" parent="Rotatable"]
-position = Vector2(79, 0)
-points = PackedVector2Array(0, 0, 2000, 0)
-width = 3.0
-default_color = Color(0.532557, 0.863856, 0.982414, 1)
+[node name="RotatePadRight" parent="." instance=ExtResource("3_0pd2v")]
+position = Vector2(28, -36)
+
+[node name="RotatePadLeft" parent="." instance=ExtResource("3_0pd2v")]
+position = Vector2(-28, -36)
+rotation = 3.14159
+scale = Vector2(1, -1)
+direction = -1

@@ -12,6 +12,7 @@ radius = 65.0077
 
 [node name="Ship" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_i8y07")
+speed = 100
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_6h448")
@@ -65,9 +66,10 @@ rotation = 7.85397
 [node name="StatusBar" parent="." instance=ExtResource("5_a7ikb")]
 position = Vector2(-60, -96)
 
-[node name="Camera" type="Camera2D" parent="."]
-
 [node name="Laser" parent="." instance=ExtResource("6_f3lhp")]
+
+[node name="Camera" type="Camera2D" parent="."]
+visible = false
 
 [connection signal="energy_changed" from="." to="StatusBar" method="_on_ship_energy_changed"]
 [connection signal="hp_changed" from="." to="StatusBar" method="_on_ship_hp_changed"]
