@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cutqyci4qu4mr"]
+[gd_scene load_steps=6 format=3 uid="uid://cutqyci4qu4mr"]
 
 [ext_resource type="Script" uid="uid://cp1scpjs17vs1" path="res://entities/ship/laser/scripts/laser.gd" id="1_qcw8r"]
 [ext_resource type="Texture2D" uid="uid://d3vsqy0bbuyib" path="res://entities/ship/laser/sprites/laser.png" id="2_qcw8r"]
 [ext_resource type="PackedScene" uid="uid://d081r8pruwpsw" path="res://entities/ship/laser/rotate_pad.tscn" id="3_0pd2v"]
 [ext_resource type="Texture2D" uid="uid://drl0f7kna52hk" path="res://entities/ship/laser/sprites/light_sphere.png" id="3_gh76m"]
+[ext_resource type="PackedScene" uid="uid://0fyy5tl31suv" path="res://entities/ship/laser/fire_pad.tscn" id="5_dine2"]
 
 [node name="Laser" type="Node2D"]
 script = ExtResource("1_qcw8r")
@@ -38,3 +39,10 @@ position = Vector2(-28, -36)
 rotation = 3.14159
 scale = Vector2(1, -1)
 direction = -1
+
+[node name="FirePad" parent="." instance=ExtResource("5_dine2")]
+position = Vector2(-28, 28)
+
+[node name="FirePadRight" parent="." instance=ExtResource("5_dine2")]
+position = Vector2(28, 28)
+scale = Vector2(-1, 1)
