@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://0fyy5tl31suv"]
+
+[ext_resource type="Script" uid="uid://dcrfgmxr3dhc4" path="res://entities/ship/laser/scripts/fire_pad.gd" id="1_0iinx"]
+[ext_resource type="Texture2D" uid="uid://bd5v0c161qv6l" path="res://entities/ship/laser/sprites/firepad.png" id="1_6lflo"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1wo1m"]
+radius = 8.0
+
+[node name="FirePad" type="Area2D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_0iinx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_1wo1m")
+
+[node name="Sprite" type="Sprite2D" parent="CollisionShape2D"]
+texture = ExtResource("1_6lflo")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

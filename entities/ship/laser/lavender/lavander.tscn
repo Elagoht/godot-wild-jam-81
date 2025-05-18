@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://dba8153en7mf2"]
+
+[ext_resource type="Texture2D" uid="uid://dtfsjyrhswjsw" path="res://icon.svg" id="1_8ihpa"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_htias"]
+radius = 8.0
+
+[node name="Lavander" type="Area2D"]
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_htias")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+
+[node name="Icon" type="Sprite2D" parent="."]
+scale = Vector2(0.125, 0.125)
+texture = ExtResource("1_8ihpa")
