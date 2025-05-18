@@ -1,12 +1,16 @@
-[gd_scene load_steps=6 format=4 uid="uid://cytcmdfaxo6w0"]
+[gd_scene load_steps=7 format=4 uid="uid://cytcmdfaxo6w0"]
 
 [ext_resource type="PackedScene" uid="uid://cav0fc8pl63y6" path="res://entities/player/Player.tscn" id="1_hkwxo"]
 [ext_resource type="PackedScene" uid="uid://e4ouoc56g7l5" path="res://tilesets/demo/tile_map_demo.tscn" id="1_jg0uj"]
 [ext_resource type="PackedScene" uid="uid://ci3gdlpvoknsb" path="res://entities/ship/Ship.tscn" id="1_mt7cn"]
+[ext_resource type="Script" uid="uid://dqfxkb1avv0cw" path="res://levels/map_manager.gd" id="1_qkoq2"]
 [ext_resource type="Texture2D" uid="uid://c12o47xqw2sl2" path="res://tilesets/demo/bg.png" id="1_srceu"]
 [ext_resource type="PackedScene" uid="uid://dqy1yso4jbo8s" path="res://entities/gasBall/gas_ball.tscn" id="3_3348v"]
 
 [node name="MainLevel" type="Node2D"]
+
+[node name="MapManager" type="Node2D" parent="."]
+script = ExtResource("1_qkoq2")
 
 [node name="Parallax2D" type="Parallax2D" parent="."]
 scroll_scale = Vector2(0.5, 0.5)

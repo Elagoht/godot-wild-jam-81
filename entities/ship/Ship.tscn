@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://ci3gdlpvoknsb"]
+[gd_scene load_steps=9 format=3 uid="uid://ci3gdlpvoknsb"]
 
 [ext_resource type="Script" uid="uid://dixrswgnmpg4x" path="res://entities/ship/scripts/ship.gd" id="1_i8y07"]
 [ext_resource type="Texture2D" uid="uid://d4i6vbqk46p5k" path="res://entities/ship/sprites/ship.png" id="1_to6fy"]
 [ext_resource type="PackedScene" uid="uid://s2mhjkvca3m" path="res://entities/ship/movepad/MovePad.tscn" id="3_0i2w5"]
 [ext_resource type="PackedScene" uid="uid://c8shxe47tf6wk" path="res://entities/ship/statusBar/StatusBar.tscn" id="5_a7ikb"]
 [ext_resource type="PackedScene" uid="uid://cutqyci4qu4mr" path="res://entities/ship/laser/Laser.tscn" id="6_f3lhp"]
+[ext_resource type="Script" uid="uid://dt8k14n5p8o6h" path="res://textBubble/scripts/DialogManager.gd" id="7_6h448"]
 [ext_resource type="PackedScene" uid="uid://cflg1bmhils22" path="res://entities/ship/shield/Shield.tscn" id="8_24c80"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6h448"]
@@ -71,6 +72,15 @@ position = Vector2(-60, -96)
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 texture = ExtResource("1_to6fy")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="DialogRoot" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("7_6h448")
 
 [connection signal="energy_changed" from="." to="StatusBar" method="_on_ship_energy_changed"]
 [connection signal="hp_changed" from="." to="StatusBar" method="_on_ship_hp_changed"]
