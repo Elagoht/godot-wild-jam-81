@@ -1,0 +1,76 @@
+[gd_scene load_steps=5 format=3 uid="uid://blifp2ycqjuw5"]
+
+[ext_resource type="Script" uid="uid://c2l7ffgifohhu" path="res://textBubble/scripts/text_box.gd" id="1_k8plu"]
+[ext_resource type="Texture2D" uid="uid://dmk8u6e88x066" path="res://textBubble/Pngs/final_textbox.png" id="2_yjkhg"]
+[ext_resource type="FontFile" uid="uid://chniy5cnhkckw" path="res://textBubble/Puntos/Mojang-Regular.ttf" id="3_v0o5p"]
+[ext_resource type="Texture2D" uid="uid://cfpb1rpw5i5io" path="res://entities/player/sprites/player.png" id="3_yjkhg"]
+
+[node name="TextBox" type="MarginContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(0, 200)
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 843.0
+offset_top = 240.0
+offset_right = 863.0
+offset_bottom = 1280.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.13456, 0.067919)
+size_flags_horizontal = 0
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
+script = ExtResource("1_k8plu")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 2
+texture = ExtResource("2_yjkhg")
+patch_margin_left = 80
+patch_margin_top = 48
+patch_margin_right = 80
+patch_margin_bottom = 48
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+custom_minimum_size = Vector2(1024, 512)
+layout_direction = 2
+layout_mode = 2
+
+[node name="Portrait" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(0, 512)
+layout_direction = 2
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = ExtResource("3_yjkhg")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(1024, 1024)
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 144
+theme_override_constants/outline_size = 0
+theme_override_fonts/font = ExtResource("3_v0o5p")
+theme_override_font_sizes/font_size = 128
+horizontal_alignment = 1
+autowrap_mode = 1
+
+[node name="LetterDisplayTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="LetterDisplayTimer" to="." method="_on_letter_display_timer_timeout"]
